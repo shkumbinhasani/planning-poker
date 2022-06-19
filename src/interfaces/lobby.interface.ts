@@ -12,6 +12,7 @@ export interface LobbyInterface {
         name: string,
     },
     deadline: number,
+    timeToEnd: number,
     status: LobbyStatus,
     answers: string[],
     scores: {

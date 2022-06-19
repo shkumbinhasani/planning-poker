@@ -2,5 +2,5 @@ export interface LobbyMemberInterface {
     id: string,
     name: string,
     profilePicture: string | null,
-    answer: string,
+    answer: string | null,
 }

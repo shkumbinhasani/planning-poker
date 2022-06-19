@@ -16,6 +16,7 @@ import {toast} from "react-hot-toast";
 import Config from "../../components/Config";
 import Progress from "../../components/Progress";
 import useLobbyMember from "../../hooks/useLobbyMember";
+import {LobbyStatus} from "../../interfaces/lobby.interface";
 
 const Lobby: FC<LobbyProps> = ({}) => {
     const {lobbyId} = useParams();
@@ -27,7 +28,7 @@ const Lobby: FC<LobbyProps> = ({}) => {
         loading: loadingMemberLoading,
         error: lobbyMemberError
     } = useLobbyMember(lobbyId ?? "", user?.uid ?? "");
-    if (loading) {
+    if (loading || loadingMemberLoading) {
         return <Loading/>
     }
 
@@ -47,6 +48,8 @@ const Lobby: FC<LobbyProps> = ({}) => {
         return <div/>;
     }
 
+    const isAbleToVote: boolean = !!lobbyMember?.answer && lobby.status === LobbyStatus.RUNNING;
+
     return <Container>
         <Header headerText={"Planning Poker"} avatar={<Avatar src={user?.photoURL} alt={"Profile picture"}/>}/>
 
@@ -57,7 +60,7 @@ const Lobby: FC<LobbyProps> = ({}) => {
                 <div className={styles.cardButtonParent}>
                     {
                         lobby.answers.map((answer) => {
-                            return <CardButton>{answer}</CardButton>
+                            return <CardButton disabled={!isAbleToVote}>{answer}</CardButton>
                         })
                     }
 

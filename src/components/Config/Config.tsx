@@ -18,14 +18,17 @@ const Config: FC<LobbyInterface> = (lobby) => {
     const options = ["0", "1/2", "1", "2", "3", "5", "8", "13"];
     const [selected, setSelected] = useState<number[]>([]);
     const [timeToVoteValue, onTimeToVoteChange] = useInput("10");
-    const [status, setStatus] = useState<LobbyStatus>(LobbyStatus.IDLE);
     const {lobbyMembers, loading, error} = useLobbyMembers(lobby.id);
     const navigate = useNavigate();
+
+    if(loading) {
+        return <p>Loading...</p>
+    }
 
     useEffect(() => {
         updateAnswers(lobby, lobbyMembers).then(() => {
         })
-    }, [lobby, lobbyMembers, status])
+    }, [lobby, lobbyMembers])
 
     useEffect(() => {
         if (error) {
@@ -41,7 +44,7 @@ const Config: FC<LobbyInterface> = (lobby) => {
             success: "Lobby updated successfully",
             loading: "Updating Lobby",
             error: "Failed Updating lobby"
-        }).then(r => {})
+        }).then(() => {})
     }
 
     const startGame = () => {
@@ -49,8 +52,20 @@ const Config: FC<LobbyInterface> = (lobby) => {
             error: "Failed Starting the game",
             loading: "Starting the Game",
             success: "Game Started Successfully"
-        }).then(r => {})
+        }).then(() => {})
      }
+
+    const restartGame = () => {
+        toast.promise(updateLobbyState(lobby, LobbyStatus.RUNNING), {
+            error: "Failed Starting the game",
+            loading: "Starting the Game",
+            success: "Game Started Successfully"
+        }).then(() => {})
+    }
+
+    const stopGame = () => {
+
+    }
 
     return <Card className={[styles.Lobby, styles.Config].join(" ")}>
         <h3>Config</h3>
@@ -77,8 +92,8 @@ const Config: FC<LobbyInterface> = (lobby) => {
         {lobby.status == LobbyStatus.IDLE ? <FAB text={"Start"} icon={<BsFillPlayFill/>} onClick={startGame}/> : <></>}
         {lobby.status == LobbyStatus.ENDED ? <FAB text={"Start"} icon={<BsFillPlayFill/>} onClick={startGame}/> : <></>}
         {lobby.status == LobbyStatus.RUNNING ? <>
-            <FAB text={"stop"} color={"danger"} icon={<BsFillStopFill/>}/>
-            <FAB text={"restart"} color={"secondary"} icon={<VscDebugRestart/>} stack={1}/>
+            <FAB text={"stop"} color={"danger"} icon={<BsFillStopFill/>} onClick={stopGame}/>
+            <FAB text={"restart"} color={"secondary"} icon={<VscDebugRestart/>} stack={1} onClick={restartGame}/>
         </> : <></>}
 
         <footer>

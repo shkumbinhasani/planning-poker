@@ -18,6 +18,7 @@ export const createLobby = async (): Promise<string> => {
         },
         deadline: 0,
         id: id,
+        timeToEnd: 10,
         status: LobbyStatus.IDLE,
         answers: [],
         scores: [
@@ -57,7 +58,7 @@ export const joinLobby = async (lobbyId: string): Promise<void> => {
         id: user.uid,
         name: user.displayName ?? user.uid,
         profilePicture: user.photoURL ?? null,
-        answer: ""
+        answer: null
     }
 
     await setDoc(doc(db, `lobby/${lobby.id}/member/${user.uid}`), lobbyMember);
