@@ -1,0 +1,30 @@
+.Home {
+
+}
+
+.lobbyHome {
+  padding: 25px;
+  display: flex;
+  border-radius: 14px;
+
+  .flexOne {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .divider {
+    width: 1px;
+    background-color: #D9D9D9;
+    margin: -10px 22px;
+  }
+
+  h3 {
+    font-family: 'Product Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 21px;
+    margin: 0 0 20px;
+  }
+}

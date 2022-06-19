@@ -1,0 +1,43 @@
+.MultiSelectParent{
+  grid-column: span 2;
+}
+.MultiSelect {
+  display: flex;
+  flex-direction: column;
+  background: #F3F5F9;
+  border: 1px solid #C3C8D3;
+  border-radius: 8px;
+  padding: 13px 18px;
+  transition: .15s all ease-in-out;
+  margin-bottom: 6px;
+  & > label {
+    font-family: 'Product Sans', serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    margin-bottom: 7px;
+    user-select: none;
+  }
+
+  &:focus-within {
+    border-color: #7E56DA;
+  }
+}
+
+.tagHolder{
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.emptyState{
+  height: 31px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Product Sans', serif;
+  color:  #C3C8D3;
+  font-weight: 200;
+}

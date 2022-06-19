@@ -1,0 +1,11 @@
+.Footer {
+  margin-top: 25px;
+  & > p {
+    font-family: 'Product Sans', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #9C9C9C;
+  }
+}

@@ -1,0 +1,68 @@
+.Button {
+  background: #7E56DA;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 42px;
+  border: 0;
+  font-family: 'Product Sans', serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: white;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: all .15s ease-in-out;
+  outline: 2px solid #7E56DA00;
+  outline-offset: 0;
+  padding: 7px 14px;
+  &:hover {
+    background-color: hsl(258, 64, 65);
+  }
+
+  &:active {
+    background-color: hsl(258, 64, 55);
+  }
+
+  &:focus {
+    outline: 2px solid #7E56DA;
+    outline-offset: 4px;
+  }
+}
+
+.primary {
+  background: hsl(258, 64, 60);
+  &:hover {
+    background-color: hsl(258, 64, 65);
+  }
+
+  &:active {
+    background-color: hsl(258, 64, 55);
+  }
+
+  &:focus {
+    outline: 2px solid #7E56DA;
+    outline-offset: 4px;
+  }
+}
+
+.secondary {
+  background: hsl(0, 0, 100);
+  color: black;
+  outline: 2px solid #DCDCDC;
+  outline-offset: 0px;
+  &:hover {
+    background-color: hsl(0, 0, 95);
+  }
+
+  &:active {
+    background-color: hsl(0, 0, 90);
+  }
+
+  &:focus {
+    outline: 2px solid #DCDCDC;
+    outline-offset: 4px;
+  }
+}

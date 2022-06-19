@@ -1,0 +1,33 @@
+.TextField {
+  display: flex;
+  flex-direction: column;
+  background: #F3F5F9;
+  border: 1px solid #C3C8D3;
+  border-radius: 8px;
+  padding: 13px 18px;
+  transition: .15s all ease-in-out;
+  cursor: text;
+  & > label {
+    font-family: 'Product Sans', serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    margin-bottom: 7px;
+    cursor: text;
+    user-select: none;
+  }
+
+  & > input {
+    background-color: transparent;
+    border: 0;
+    font-family: 'Product Sans', serif;
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  &:focus-within {
+    border-color: #7E56DA;
+  }
+}

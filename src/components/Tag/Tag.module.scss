@@ -1,0 +1,40 @@
+.Tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 6px 6px 12px;
+  border-radius: 20px;
+  background-color: white;
+  border: 1px solid #C3C8D3;
+  cursor: pointer;
+  font-family: 'Product Sans', serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  animation-name: example;
+  animation-duration: .2s;
+  transform: scale(1);
+  & > svg {
+    color: #9C9C9C;
+    transition: all .2s ease-in;
+    margin-left: 10px;
+  }
+  &:hover {
+    & > svg {
+      color: black;
+    }
+
+  }
+}
+
+.isDismissible{
+  padding: 4px 17px;
+}
+
+
+@keyframes example {
+  from {
+    transform: scale(0);
+  }
+}

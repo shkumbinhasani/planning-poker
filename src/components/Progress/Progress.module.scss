@@ -1,0 +1,10 @@
+.Progress {
+  height: 3px;
+  background: transparent;
+
+  & > div {
+    background-color: #7E56DA;
+    height: 100%;
+    transition: all .1s ease-in-out;
+  }
+}
